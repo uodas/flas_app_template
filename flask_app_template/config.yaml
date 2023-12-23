@@ -1,0 +1,55 @@
+---
+# === backend config stuff ===
+parameter:
+   multi: 3
+   
+# === datbase config stuff ===
+db:
+   table_data: Guys
+   sqlite_db: sqlite:///../db/mockup_db.sqlite
+
+# === for APScheduler
+apscheduler:
+   check_interval_sec: 10 
+   
+# === frontend stuff ===
+flask_app:
+   mode: debug
+   #mode: prod
+   log: debug_file
+   #log: debug_stream
+ 
+   
+# === log configs ===
+logging:
+  version: 1
+  formatters:
+    main:
+      format: "%(asctime)s %(module)s %(levelname)s: %(message)s"
+      datefmt: "%Y-%m-%d %H:%M:%S"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: main
+      stream: ext://sys.stderr
+    file:
+      class: logging.FileHandler
+      level: DEBUG
+      formatter: main
+      filename: logs/vilma_app_template.log
+      mode: a
+  loggers:
+    debug_stream:
+      level: DEBUG
+      handlers:
+      - console
+      qualname: debug_steam
+    debug_file:
+      level: DEBUG
+      handlers:
+      - file
+      qualname: debug_file
+      
+      
+      

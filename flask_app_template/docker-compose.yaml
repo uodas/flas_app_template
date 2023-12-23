@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+   app:
+      build:
+         context: .
+         dockerfile: ./docker/app_prod.Dockerfile
+      ports:
+         - 4405:5000 # 4401 is host, 5000 is inside container
+      tty: true
+      command: gunicorn --bind 0.0.0.0:5000 --timeout 120 'frontend.main_frontend:app'
+      volumes:
+#         - "./:/app"       # all apps code in a volume good for development / testing
+         - "./db:/app/db"   # db folder will be a volume
+         

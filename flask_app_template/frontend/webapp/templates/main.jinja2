@@ -1,0 +1,55 @@
+{% extends "base.jinja2" %}
+
+{% block head %}
+{{ super() }}
+<title>LTVILMA App Template</title>
+{% endblock %} 
+
+{% block content %}
+{{ super() }}
+
+
+<div class="container">
+  <form method="POST" action="" id="template_form">
+  {{ template_form.hidden_tag() }} {# needed for the form to work #}
+  
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        Input text: {{ template_form.text(size="20") }}
+        </br>
+        Input number: {{ template_form.number }}
+        </br>
+        {{ template_form.submit }}
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </form>
+</div>
+
+<div class="container">
+
+  </br>
+  </br>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10"> 
+      
+      {% for entry in data %}
+      
+       {{ entry.Name }}</br>
+       {{ entry.Surname }}</br>
+       {{ entry.Status }}</br>
+       {{ entry.Level }}</br>
+       </br>
+         
+      {% endfor %}
+      
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+   
+</div>
+      
+{% endblock %}
+      

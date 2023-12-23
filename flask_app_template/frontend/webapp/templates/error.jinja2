@@ -1,0 +1,24 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+  {% include 'tfs_logo.jinja2' %}
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10"><b>Error:</b>  {{ error }} </div>
+    <div class="col-md-1"></div>  
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10"><pre> {{ ex }} <pre></div>
+    <div class="col-md-1"></div>
+  </div>
+
+</div>
+      
+{% endblock %}
+      

@@ -1,0 +1,25 @@
+{% extends "base.jinja2" %}
+   
+{% block head %}
+{{ super() }}
+<title>Flask APP Template - Jobs</title>
+{% endblock %}
+  
+{% block content %}
+{{ super() }}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ul>
+    
+        {% for file in files %}
+          <li><a href="{{ url_for('download_file', filename=file) }}"> {{ file }} </li>
+		{% endfor %}
+		
+      </ul>
+    </div>    
+  </div>
+</div>
+
+{% endblock %}
